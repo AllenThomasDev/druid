@@ -519,12 +519,12 @@ public class MovingAverageIterableTest extends InitializedNullHandlingTest
 
     Assert.assertTrue(iter.hasNext());
     result = iter.next();
-    Assert.assertEquals("u", (result.getDimension("gender")).get(0));
+    Assert.assertEquals("f", (result.getDimension("gender")).get(0));
     Assert.assertEquals(JAN_2, (result.getTimestamp()));
 
     Assert.assertTrue(iter.hasNext());
     result = iter.next();
-    Assert.assertEquals("f", (result.getDimension("gender")).get(0));
+    Assert.assertEquals("u", (result.getDimension("gender")).get(0));
     Assert.assertEquals(JAN_2, (result.getTimestamp()));
 
     // Jan 3
@@ -551,12 +551,12 @@ public class MovingAverageIterableTest extends InitializedNullHandlingTest
 
     Assert.assertTrue(iter.hasNext());
     result = iter.next();
-    Assert.assertEquals("u", (result.getDimension("gender")).get(0));
+    Assert.assertEquals("f", (result.getDimension("gender")).get(0));
     Assert.assertEquals(JAN_4, (result.getTimestamp()));
 
     Assert.assertTrue(iter.hasNext());
     result = iter.next();
-    Assert.assertEquals("f", (result.getDimension("gender")).get(0));
+    Assert.assertEquals("u", (result.getDimension("gender")).get(0));
     Assert.assertEquals(JAN_4, (result.getTimestamp()));
 
     Assert.assertFalse(iter.hasNext());
