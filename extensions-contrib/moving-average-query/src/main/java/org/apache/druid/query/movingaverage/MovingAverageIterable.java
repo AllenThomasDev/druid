@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -137,7 +138,7 @@ public class MovingAverageIterable implements Iterable<Row>
 
     private final List<DimensionSpec> dims;
     // Key: Row's dimension set. Value: Averager. See MovingAverageIterator#computeMovingAverage for more details.
-    private final Map<Map<String, Object>, List<Averager<?>>> averagers = new HashMap<>();
+    private final Map<Map<String, Object>, List<Averager<?>>> averagers = new LinkedHashMap<>();
     private final List<AveragerFactory<?, ?>> averagerFactories;
 
     private Yielder<RowBucket> yielder;
@@ -222,7 +223,7 @@ public class MovingAverageIterable implements Iterable<Row>
               throw new NoSuchElementException();
             }
           } else {
-            Set<Map<String, Object>> averagerKeys = new HashSet<>(averagers.keySet());
+            Set<Map<String, Object>> averagerKeys = new LinkedHashSet<>(averagers.keySet());
             averagerKeys.removeAll(seenKeys);
             averagersKeysIter = averagerKeys.iterator();
             cacheIter = null;
